@@ -17,14 +17,18 @@ namespace minesweeper_pospisilik_radim
             InitializeComponent();
             board = new gameBoard(4, 4, 4);
             CreateButtons();
+
+
         }
         private gameBoard board;
         private Button[,] buttons;
+        private Cells[,] cells;
 
 
         private void CreateButtons()
         {
-            buttons = new Button[4, 4];
+            //buttons = new Button[4, 4];//
+            // cells = new Cells[4, 4];//
 
             int buttonSize = 80;
 
@@ -37,10 +41,14 @@ namespace minesweeper_pospisilik_radim
                     btn.Height = buttonSize;
                     btn.Left = i * buttonSize;
                     btn.Top = j * buttonSize;
+                    
+
+
 
                     btn.BackColor = Color.Transparent;
                     btn.ForeColor = Color.Black;
                     btn.Font = new Font("Segoe UI", 14, FontStyle.Bold);
+                    
 
 
 
@@ -50,7 +58,7 @@ namespace minesweeper_pospisilik_radim
                     btn.Click += Button_Click;
 
                     this.Controls.Add(btn);
-                    buttons[i, j] = btn;
+                    //buttons[i, j] = btn;//
                 }
             }
         }
@@ -65,7 +73,9 @@ namespace minesweeper_pospisilik_radim
             // Tady se bude zpracovávat klik na políčko
             if (board.Cells[x, y].IsMine)
             {
-                MessageBox.Show("BOOM! Trefil jsi minu!");
+                MessageBox.Show($"BOOM! Trefil jsi minu!");
+                
+
             }
             else
             {
@@ -73,7 +83,12 @@ namespace minesweeper_pospisilik_radim
             }
         }
 
+        private void GameForm_Load(object sender, EventArgs e)
+        {
 
+        }
+
+        
     }
 }
 

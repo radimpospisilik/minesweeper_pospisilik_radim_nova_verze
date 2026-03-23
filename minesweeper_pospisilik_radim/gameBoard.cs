@@ -47,6 +47,7 @@ namespace minesweeper_pospisilik_radim
                 {
                     Cells[x, y].IsMine = true;
                     minesPlaced++;
+                    break;
                     
                     
                 }

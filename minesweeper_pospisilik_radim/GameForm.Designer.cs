@@ -37,11 +37,10 @@
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(475, 712);
             Name = "GameForm";
+            Load += GameForm_Load;
             ResumeLayout(false);
         }
 
         #endregion
-
-
     }
 }
