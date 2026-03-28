@@ -4,6 +4,7 @@ using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace minesweeper_pospisilik_radim
 {
@@ -47,12 +48,14 @@ namespace minesweeper_pospisilik_radim
                 {
                     Cells[x, y].IsMine = true;
                     minesPlaced++;
-                    break;
+                    
                     
                     
                 }
             }
         }
+
+       
 
 
 

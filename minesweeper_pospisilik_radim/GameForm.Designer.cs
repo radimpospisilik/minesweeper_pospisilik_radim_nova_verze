@@ -28,19 +28,80 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameForm));
+            progressBar1 = new ProgressBar();
+            textBox1 = new TextBox();
+            textBox2 = new TextBox();
+            button1 = new Button();
+            timer1 = new System.Windows.Forms.Timer(components);
+            comboBox1 = new ComboBox();
             SuspendLayout();
+            // 
+            // progressBar1
+            // 
+            progressBar1.Location = new Point(2, 679);
+            progressBar1.Name = "progressBar1";
+            progressBar1.Size = new Size(471, 31);
+            progressBar1.TabIndex = 0;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(117, 579);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(100, 23);
+            textBox1.TabIndex = 6;
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(11, 579);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(100, 23);
+            textBox2.TabIndex = 5;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(361, 579);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 3;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "Defaultní pole", "Vlastní pole" });
+            comboBox1.Location = new Point(234, 579);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(121, 23);
+            comboBox1.TabIndex = 4;
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // GameForm
             // 
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(475, 712);
+            Controls.Add(comboBox1);
+            Controls.Add(button1);
+            Controls.Add(textBox2);
+            Controls.Add(textBox1);
+            Controls.Add(progressBar1);
             Name = "GameForm";
             Load += GameForm_Load;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private ProgressBar progressBar1;
+        private TextBox textBox1;
+        private TextBox textBox2;
+        private Button button1;
+        private System.Windows.Forms.Timer timer1;
+        private ComboBox comboBox1;
     }
 }

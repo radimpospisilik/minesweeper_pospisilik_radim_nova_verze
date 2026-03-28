@@ -32,36 +32,70 @@ namespace minesweeper_pospisilik_radim
 
             int buttonSize = 80;
 
-            for (int i = 0; i < 4; i++)
+            int gridSize = 4;
+
+
+            buttons = new Button[gridSize, gridSize];
+
+            int totalWidth = gridSize * buttonSize;
+            int totalHeight = gridSize * buttonSize;
+
+            int startX = (this.ClientSize.Width - totalWidth) / 2;
+            int startY = (this.ClientSize.Height - totalHeight) / 2;
+
+
+            for (int i = 0; i < gridSize; i++)
             {
-                for (int j = 0; j < 4; j++)
+                for (int j = 0; j < gridSize; j++)
                 {
                     Button btn = new Button();
                     btn.Width = buttonSize;
                     btn.Height = buttonSize;
-                    btn.Left = i * buttonSize;
-                    btn.Top = j * buttonSize;
-                    
 
-
-
-                    btn.BackColor = Color.Transparent;
-                    btn.ForeColor = Color.Blue;
-                    btn.Font = new Font("Segoe UI", 14, FontStyle.Bold);
-                    
-
-
-
-
+                    btn.Left = startX + i * buttonSize;
+                    btn.Top = startY + j * buttonSize;
 
                     btn.Tag = new int[] { i, j };
                     btn.Click += Button_Click;
 
+                    btn.BackColor = Color.Transparent;
+                    btn.ForeColor = Color.Blue;
+                    btn.Font = new Font("Segoe UI", 14, FontStyle.Bold);
+
                     this.Controls.Add(btn);
-                    //buttons[i, j] = btn;//
+                    buttons[i, j] = btn;
                 }
             }
+
+
+
+
+
+            /* for (int i = 0; i < 4; i++)
+             {
+                 for (int j = 0; j < 4; j++)
+                 {
+                     Button btn = new Button();
+                     btn.Width = buttonSize;
+                     btn.Height = buttonSize;
+                     btn.Left = i * buttonSize;
+                     btn.Top = j * buttonSize;
+                     btn.BackColor = Color.Transparent;
+                     btn.ForeColor = Color.Blue;
+                     btn.Font = new Font("Segoe UI", 14, FontStyle.Bold);
+                     btn.Tag = new int[] { i, j };
+                     btn.Click += Button_Click;
+                     this.Controls.Add(btn);
+                     buttons[i, j] = btn;
+
+
+
+                 }
+             } 
+            */
         }
+
+
 
         private void Button_Click(object sender, EventArgs e)
         {
@@ -74,7 +108,7 @@ namespace minesweeper_pospisilik_radim
             if (board.Cells[x, y].IsMine)
             {
                 MessageBox.Show($"BOOM! Trefil jsi minu!");
-                
+                ResetGame();
 
             }
             else
@@ -88,7 +122,34 @@ namespace minesweeper_pospisilik_radim
 
         }
 
-        
+        private void ResetGame()
+        {
+            // 1. vytvoří novou herní desku
+
+
+            // 2. smaže stará tlačítka
+            
+
+
+            // 3. znovu vytvoří tlačítka
+            CreateButtons();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
