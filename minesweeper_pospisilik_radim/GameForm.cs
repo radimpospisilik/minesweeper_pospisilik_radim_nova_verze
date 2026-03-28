@@ -46,7 +46,7 @@ namespace minesweeper_pospisilik_radim
 
 
                     btn.BackColor = Color.Transparent;
-                    btn.ForeColor = Color.Black;
+                    btn.ForeColor = Color.Blue;
                     btn.Font = new Font("Segoe UI", 14, FontStyle.Bold);
                     
 
