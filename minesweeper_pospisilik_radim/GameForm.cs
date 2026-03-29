@@ -15,6 +15,7 @@ namespace minesweeper_pospisilik_radim
 
         private gameBoard board;
         private Button[,] buttons;
+        
 
         private int gridSize = 4;
         private int mines = 4;
@@ -30,7 +31,7 @@ namespace minesweeper_pospisilik_radim
             progressBar1.Value = 0;
             progressBar1.Maximum = gridSize * gridSize - mines;
             timer1.Start();
-            
+
             CreateButtons();
 
 
@@ -203,6 +204,11 @@ namespace minesweeper_pospisilik_radim
         private void progressBar1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

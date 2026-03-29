@@ -27,5 +27,27 @@ namespace minesweeper_pospisilik_radim
             this.Show();
 
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            AboutForm aboutForm = new AboutForm();
+
+
+            this.Hide();
+
+
+            aboutForm.ShowDialog();
+
+
+            this.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            HelpForm helpForm = new HelpForm();
+            this.Hide();
+            helpForm.ShowDialog();
+            this.Show();
+        }
     }
 }

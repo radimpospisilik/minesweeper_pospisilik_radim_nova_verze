@@ -90,6 +90,7 @@
             button3.TabIndex = 2;
             button3.Text = "NÁPOVĚDA";
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click;
             // 
             // label1
             // 
@@ -143,6 +144,7 @@
             button4.TabIndex = 6;
             button4.Text = "O aplikaci";
             button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
             // 
             // Form1
             // 

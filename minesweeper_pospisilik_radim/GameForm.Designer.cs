@@ -37,6 +37,8 @@
             timer1 = new System.Windows.Forms.Timer(components);
             comboBox1 = new ComboBox();
             label1 = new Label();
+            buttonSave = new Button();
+            buttonLoad = new Button();
             SuspendLayout();
             // 
             // progressBar1
@@ -95,11 +97,32 @@
             label1.TabIndex = 7;
             label1.Click += label1_Click;
             // 
+            // buttonSave
+            // 
+            buttonSave.Location = new Point(142, 630);
+            buttonSave.Name = "buttonSave";
+            buttonSave.Size = new Size(75, 23);
+            buttonSave.TabIndex = 8;
+            buttonSave.Text = "uložit";
+            buttonSave.UseVisualStyleBackColor = true;
+            buttonSave.Click += buttonSave_Click;
+            // 
+            // buttonLoad
+            // 
+            buttonLoad.Location = new Point(257, 630);
+            buttonLoad.Name = "buttonLoad";
+            buttonLoad.Size = new Size(75, 23);
+            buttonLoad.TabIndex = 9;
+            buttonLoad.Text = "načíst";
+            buttonLoad.UseVisualStyleBackColor = true;
+            // 
             // GameForm
             // 
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(475, 712);
+            Controls.Add(buttonLoad);
+            Controls.Add(buttonSave);
             Controls.Add(label1);
             Controls.Add(comboBox1);
             Controls.Add(button1);
@@ -121,5 +144,7 @@
         private System.Windows.Forms.Timer timer1;
         private ComboBox comboBox1;
         private Label label1;
+        private Button buttonSave;
+        private Button buttonLoad;
     }
 }
