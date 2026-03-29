@@ -39,6 +39,7 @@
             label1 = new Label();
             buttonSave = new Button();
             buttonLoad = new Button();
+            label2 = new Label();
             SuspendLayout();
             // 
             // progressBar1
@@ -115,12 +116,24 @@
             buttonLoad.TabIndex = 9;
             buttonLoad.Text = "načíst";
             buttonLoad.UseVisualStyleBackColor = true;
+            buttonLoad.Click += buttonLoad_Click;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(103, 46);
+            label2.Name = "label2";
+            label2.Size = new Size(265, 21);
+            label2.TabIndex = 10;
+            label2.Text = "vzhled se bude dšlat v další fázi!!!";
             // 
             // GameForm
             // 
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(475, 712);
+            Controls.Add(label2);
             Controls.Add(buttonLoad);
             Controls.Add(buttonSave);
             Controls.Add(label1);
@@ -146,5 +159,6 @@
         private Label label1;
         private Button buttonSave;
         private Button buttonLoad;
+        private Label label2;
     }
 }

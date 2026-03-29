@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.Json;
+using System.IO;
 
 namespace minesweeper_pospisilik_radim
 {
@@ -15,7 +17,7 @@ namespace minesweeper_pospisilik_radim
 
         private gameBoard board;
         private Button[,] buttons;
-        
+
 
         private int gridSize = 4;
         private int mines = 4;
@@ -208,7 +210,49 @@ namespace minesweeper_pospisilik_radim
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            
+            SaveGame();
+        }
+
+        private void SaveGame()
+        {
+            GameResult result = new GameResult()
+            {
+                Time = time,
+                GridSize = gridSize,
+                Mines = mines
+            };
+
+            string json = JsonSerializer.Serialize(result);
+
+            File.WriteAllText("save.json", json);
+
+            MessageBox.Show("Uloženo!");
+        }
+
+        private void LoadGame()
+        {
+            if (!File.Exists("save.json"))
+            {
+                MessageBox.Show("Soubor neexistuje!");
+                return;
+            }
+
+            string json = File.ReadAllText("save.json");
+
+            GameResult result = JsonSerializer.Deserialize<GameResult>(json);
+
+            gridSize = result.GridSize;
+            mines = result.Mines;
+            time = result.Time;
+
+            ResetGame();
+
+            MessageBox.Show("Načteno!");
+        }
+
+        private void buttonLoad_Click(object sender, EventArgs e)
+        {
+            LoadGame();
         }
     }
 }
