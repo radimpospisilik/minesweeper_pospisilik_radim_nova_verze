@@ -12,17 +12,33 @@ namespace minesweeper_pospisilik_radim
 {
     public partial class GameForm : Form
     {
+
+        private gameBoard board;
+        private Button[,] buttons;
+
+        private int gridSize = 4;
+        private int mines = 4;
+
+        int time = 0;
+        int openedCells = 0;
+
         public GameForm()
         {
+
             InitializeComponent();
-            board = new gameBoard(4, 4, 4);
+            board = new gameBoard(gridSize, gridSize, mines);
+            progressBar1.Value = 0;
+            progressBar1.Maximum = gridSize * gridSize - mines;
+            timer1.Start();
+            
             CreateButtons();
 
 
         }
-        private gameBoard board;
-        private Button[,] buttons;
-        private Cells[,] cells;
+
+
+
+
 
 
         private void CreateButtons()
@@ -31,9 +47,6 @@ namespace minesweeper_pospisilik_radim
             // cells = new Cells[4, 4];//
 
             int buttonSize = 80;
-
-            int gridSize = 4;
-
 
             buttons = new Button[gridSize, gridSize];
 
@@ -66,33 +79,6 @@ namespace minesweeper_pospisilik_radim
                     buttons[i, j] = btn;
                 }
             }
-
-
-
-
-
-            /* for (int i = 0; i < 4; i++)
-             {
-                 for (int j = 0; j < 4; j++)
-                 {
-                     Button btn = new Button();
-                     btn.Width = buttonSize;
-                     btn.Height = buttonSize;
-                     btn.Left = i * buttonSize;
-                     btn.Top = j * buttonSize;
-                     btn.BackColor = Color.Transparent;
-                     btn.ForeColor = Color.Blue;
-                     btn.Font = new Font("Segoe UI", 14, FontStyle.Bold);
-                     btn.Tag = new int[] { i, j };
-                     btn.Click += Button_Click;
-                     this.Controls.Add(btn);
-                     buttons[i, j] = btn;
-
-
-
-                 }
-             } 
-            */
         }
 
 
@@ -107,6 +93,7 @@ namespace minesweeper_pospisilik_radim
             // Tady se bude zpracovávat klik na políčko
             if (board.Cells[x, y].IsMine)
             {
+                timer1.Stop();
                 MessageBox.Show($"BOOM! Trefil jsi minu!");
                 ResetGame();
 
@@ -114,6 +101,16 @@ namespace minesweeper_pospisilik_radim
             else
             {
                 btn.Text = "✓";
+
+                openedCells++;
+                progressBar1.Value = openedCells;
+
+                // kontrola výhry
+                if (openedCells == (gridSize * gridSize - mines))
+                {
+                    MessageBox.Show("Vyhrál jsi!");
+                    ResetGame();
+                }
             }
         }
 
@@ -124,20 +121,58 @@ namespace minesweeper_pospisilik_radim
 
         private void ResetGame()
         {
-            // 1. vytvoří novou herní desku
+            foreach (var btn in buttons)
+            {
+                this.Controls.Remove(btn);
+            }
 
+            openedCells = 0;
 
-            // 2. smaže stará tlačítka
-            
+            // nastavení ProgressBaru
+            progressBar1.Value = 0;
+            progressBar1.Maximum = gridSize * gridSize - mines;
 
+            time = 0;
 
-            // 3. znovu vytvoří tlačítka
+            // vytvoří novou desku
+            board = new gameBoard(gridSize, gridSize, mines);
+
+            // vytvoří nové tlačítka
             CreateButtons();
+
+            timer1.Start();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (comboBox1.SelectedItem.ToString() == "Defaultní pole")
+            {
+                gridSize = 4;
+                mines = 4;
+            }
+            else
+            {
+                int size;
+                int mineCount;
 
+                if (!int.TryParse(textBox1.Text, out size) ||
+                    !int.TryParse(textBox2.Text, out mineCount))
+                {
+                    MessageBox.Show("Zadej platná čísla!");
+                    return;
+                }
+
+                if (mineCount >= size * size)
+                {
+                    MessageBox.Show("Počet min je moc velký!");
+                    return;
+                }
+
+                gridSize = size;
+                mines = mineCount;
+            }
+
+            ResetGame();
 
         }
 
@@ -147,6 +182,25 @@ namespace minesweeper_pospisilik_radim
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            bool custom = comboBox1.SelectedItem.ToString() == "Vlastní pole";
+
+            textBox1.Enabled = custom;
+            textBox2.Enabled = custom;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            time++;
+            label1.Text = "Čas: " + time;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void progressBar1_Click(object sender, EventArgs e)
         {
 
         }

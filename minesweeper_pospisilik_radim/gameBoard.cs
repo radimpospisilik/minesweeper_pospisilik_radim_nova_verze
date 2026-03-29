@@ -10,6 +10,7 @@ namespace minesweeper_pospisilik_radim
 {
     public class gameBoard
     {
+        
         int Width;
         int Height;
         int MineCount;
@@ -17,9 +18,9 @@ namespace minesweeper_pospisilik_radim
 
         public gameBoard(int width, int height, int mineCount)
         {
-            Width = 4;
-            Height = 4;
-            MineCount = 4;
+            Width = width;
+            Height = height;
+            MineCount = mineCount;
             Cells = new Cells[Width, Height];
 
             for (int x = 0; x < Width; x++)

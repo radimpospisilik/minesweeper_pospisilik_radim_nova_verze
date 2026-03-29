@@ -36,6 +36,7 @@
             button1 = new Button();
             timer1 = new System.Windows.Forms.Timer(components);
             comboBox1 = new ComboBox();
+            label1 = new Label();
             SuspendLayout();
             // 
             // progressBar1
@@ -44,6 +45,7 @@
             progressBar1.Name = "progressBar1";
             progressBar1.Size = new Size(471, 31);
             progressBar1.TabIndex = 0;
+            progressBar1.Click += progressBar1_Click;
             // 
             // textBox1
             // 
@@ -69,6 +71,11 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // timer1
+            // 
+            timer1.Interval = 1000;
+            timer1.Tick += timer1_Tick;
+            // 
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
@@ -79,11 +86,21 @@
             comboBox1.TabIndex = 4;
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(425, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(0, 15);
+            label1.TabIndex = 7;
+            label1.Click += label1_Click;
+            // 
             // GameForm
             // 
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(475, 712);
+            Controls.Add(label1);
             Controls.Add(comboBox1);
             Controls.Add(button1);
             Controls.Add(textBox2);
@@ -103,5 +120,6 @@
         private Button button1;
         private System.Windows.Forms.Timer timer1;
         private ComboBox comboBox1;
+        private Label label1;
     }
 }
