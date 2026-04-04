@@ -119,7 +119,7 @@ namespace minesweeper_pospisilik_radim
 
         private void GameForm_Load(object sender, EventArgs e)
         {
-
+            comboBox1.SelectedIndex = 0;
         }
 
         private void ResetGame()
@@ -146,38 +146,7 @@ namespace minesweeper_pospisilik_radim
             timer1.Start();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (comboBox1.SelectedItem.ToString() == "Defaultní pole")
-            {
-                gridSize = 4;
-                mines = 4;
-            }
-            else
-            {
-                int size;
-                int mineCount;
 
-                if (!int.TryParse(textBox1.Text, out size) ||
-                    !int.TryParse(textBox2.Text, out mineCount))
-                {
-                    MessageBox.Show("Zadej platná čísla!");
-                    return;
-                }
-
-                if (mineCount >= size * size)
-                {
-                    MessageBox.Show("Počet min je moc velký!");
-                    return;
-                }
-
-                gridSize = size;
-                mines = mineCount;
-            }
-
-            ResetGame();
-
-        }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -187,6 +156,7 @@ namespace minesweeper_pospisilik_radim
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             bool custom = comboBox1.SelectedItem.ToString() == "Vlastní pole";
+            
 
             textBox1.Enabled = custom;
             textBox2.Enabled = custom;
@@ -254,8 +224,59 @@ namespace minesweeper_pospisilik_radim
         {
             LoadGame();
         }
+
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            if (comboBox1.SelectedItem.ToString() == "Defaultní pole")
+            {
+                gridSize = 4;
+                mines = 4;
+                
+            }
+            else
+            {
+                int size;
+                int mineCount;
+
+                if (!int.TryParse(textBox1.Text, out size) ||
+                    !int.TryParse(textBox2.Text, out mineCount))
+                {
+                    MessageBox.Show("Zadej platná čísla!");
+                    return;
+                }
+
+                if (mineCount >= size * size)
+                {
+                    MessageBox.Show("Počet min je moc velký!");
+                    return;
+                }
+
+                gridSize = size;
+                mines = mineCount;
+            }
+
+            ResetGame();
+        }
+
+        private void GameForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.N)
+            {
+                ResetGame();
+            }
+
+           
+            if (e.Control && e.KeyCode == Keys.S)
+            {
+                SaveGame();
+            }
+        }
     }
 }
+
 
 
 
