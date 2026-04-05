@@ -49,5 +49,12 @@ namespace minesweeper_pospisilik_radim
             helpForm.ShowDialog();
             this.Show();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ScoreForm form = new ScoreForm();
+            form.ShowDialog(); 
+
+        }
     }
 }

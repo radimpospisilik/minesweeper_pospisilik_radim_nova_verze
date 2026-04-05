@@ -75,7 +75,7 @@ namespace minesweeper_pospisilik_radim
                     btn.Click += Button_Click;
 
                     btn.BackColor = Color.Transparent;
-                    btn.ForeColor = Color.Blue;
+                    btn.ForeColor = Color.Black;
                     btn.Font = new Font("Segoe UI", 14, FontStyle.Bold);
 
                     this.Controls.Add(btn);
@@ -108,10 +108,13 @@ namespace minesweeper_pospisilik_radim
                 openedCells++;
                 progressBar1.Value = openedCells;
 
-                // kontrola výhry
                 if (openedCells == (gridSize * gridSize - mines))
                 {
-                    MessageBox.Show("Vyhrál jsi!");
+                    timer1.Stop();
+
+                    SaveScore();
+
+                    MessageBox.Show($"Vyhrál jsi za {time}s!");
                     ResetGame();
                 }
             }
@@ -284,6 +287,33 @@ namespace minesweeper_pospisilik_radim
             {
                 SaveGame();
             }
+        }
+
+        private void SaveScore()
+        {
+            List<GameResult> scores;
+
+            if (File.Exists("scores.json"))
+            {
+                string json = File.ReadAllText("scores.json");
+                scores = JsonSerializer.Deserialize<List<GameResult>>(json) ?? new List<GameResult>();
+            }
+            else
+            {
+                scores = new List<GameResult>();
+            }
+
+            scores.Add(new GameResult()
+            {
+                Time = time,
+                GridSize = gridSize,
+                Mines = mines,
+                IsWin = true
+            });
+
+            string newJson = JsonSerializer.Serialize(scores);
+            File.WriteAllText("scores.json", newJson);
+            
         }
     }
 }

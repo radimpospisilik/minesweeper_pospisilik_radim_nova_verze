@@ -17,6 +17,7 @@ namespace minesweeper_pospisilik_radim
         public int Time { get; set; }
         public int GridSize { get; set; }
         public int Mines { get; set; }
+        public bool IsWin { get; set; }
     }
 
 
