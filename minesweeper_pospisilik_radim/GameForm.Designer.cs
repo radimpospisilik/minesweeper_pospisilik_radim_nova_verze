@@ -78,11 +78,13 @@
             // 
             // comboBox1
             // 
-            comboBox1.BackColor = SystemColors.HotTrack;
-            comboBox1.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            comboBox1.BackColor = SystemColors.Highlight;
+            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox1.FlatStyle = FlatStyle.Flat;
+            comboBox1.Font = new Font("Segoe UI Black", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             comboBox1.ForeColor = Color.White;
             comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Defaultní pole", "Vlastní pole" });
+            comboBox1.Items.AddRange(new object[] { "Defaultní hra", "Vlastní hra", "Jednoduchá hra" });
             comboBox1.Location = new Point(12, 608);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(203, 38);
@@ -102,7 +104,6 @@
             // 
             buttonSave.BackgroundImage = (Image)resources.GetObject("buttonSave.BackgroundImage");
             buttonSave.FlatAppearance.BorderSize = 0;
-            buttonSave.FlatStyle = FlatStyle.Flat;
             buttonSave.Font = new Font("Segoe UI Black", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             buttonSave.ForeColor = Color.White;
             buttonSave.Location = new Point(70, 76);
@@ -118,7 +119,6 @@
             buttonLoad.BackgroundImage = (Image)resources.GetObject("buttonLoad.BackgroundImage");
             buttonLoad.BackgroundImageLayout = ImageLayout.Stretch;
             buttonLoad.FlatAppearance.BorderSize = 0;
-            buttonLoad.FlatStyle = FlatStyle.Flat;
             buttonLoad.Font = new Font("Segoe UI Black", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             buttonLoad.ForeColor = Color.White;
             buttonLoad.Location = new Point(259, 76);
@@ -131,10 +131,9 @@
             // 
             // button1
             // 
-            button1.BackgroundImage = (Image)resources.GetObject("button1.BackgroundImage");
+            button1.BackColor = Color.LimeGreen;
             button1.BackgroundImageLayout = ImageLayout.Stretch;
             button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
             button1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             button1.ForeColor = Color.White;
             button1.Location = new Point(226, 605);
@@ -142,7 +141,7 @@
             button1.Size = new Size(227, 41);
             button1.TabIndex = 10;
             button1.Text = "Potvrdit";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
             // label2
@@ -184,8 +183,10 @@
             Controls.Add(textBox2);
             Controls.Add(textBox1);
             Controls.Add(progressBar1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             KeyPreview = true;
             Name = "GameForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Load += GameForm_Load;
             KeyDown += GameForm_KeyDown;
             ResumeLayout(false);

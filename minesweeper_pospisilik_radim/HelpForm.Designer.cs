@@ -54,10 +54,10 @@
             label6.FlatStyle = FlatStyle.Flat;
             label6.Font = new Font("Segoe UI Black", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
             label6.ForeColor = SystemColors.Highlight;
-            label6.Location = new Point(62, 227);
+            label6.Location = new Point(66, 193);
             label6.MaximumSize = new Size(350, 0);
             label6.Name = "label6";
-            label6.Size = new Size(348, 340);
+            label6.Size = new Size(348, 420);
             label6.TabIndex = 6;
             label6.Text = resources.GetString("label6.Text");
             label6.TextAlign = ContentAlignment.MiddleCenter;
@@ -89,7 +89,9 @@
             Controls.Add(button4);
             Controls.Add(label6);
             Controls.Add(label1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "HelpForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "HelpForm";
             ResumeLayout(false);
             PerformLayout();

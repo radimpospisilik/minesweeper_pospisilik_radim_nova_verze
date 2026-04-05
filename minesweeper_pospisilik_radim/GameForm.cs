@@ -155,8 +155,8 @@ namespace minesweeper_pospisilik_radim
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            bool custom = comboBox1.SelectedItem.ToString() == "Vlastní pole";
-            
+            bool custom = comboBox1.SelectedItem.ToString() == "Vlastní hra";
+
 
             textBox1.Enabled = custom;
             textBox2.Enabled = custom;
@@ -230,11 +230,16 @@ namespace minesweeper_pospisilik_radim
         private void button1_Click(object sender, EventArgs e)
         {
 
-            if (comboBox1.SelectedItem.ToString() == "Defaultní pole")
+            if (comboBox1.SelectedItem.ToString() == "Defaultní hra")
             {
                 gridSize = 4;
                 mines = 4;
-                
+
+            }
+            else if (comboBox1.SelectedItem.ToString() == "Jednoduchá hra")
+            {
+                gridSize = 2;
+                mines = 1;
             }
             else
             {
@@ -254,6 +259,12 @@ namespace minesweeper_pospisilik_radim
                     return;
                 }
 
+                if (size >= 6)
+                {
+                    MessageBox.Show("Maximální velikost pole je 5");
+                    size = 5;
+                }
+
                 gridSize = size;
                 mines = mineCount;
             }
@@ -268,7 +279,7 @@ namespace minesweeper_pospisilik_radim
                 ResetGame();
             }
 
-           
+
             if (e.Control && e.KeyCode == Keys.S)
             {
                 SaveGame();

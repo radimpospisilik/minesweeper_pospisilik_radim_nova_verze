@@ -149,7 +149,9 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "AboutForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "AboutForm";
             ResumeLayout(false);
             PerformLayout();
