@@ -8,13 +8,23 @@ using System.Windows.Forms;
 
 namespace minesweeper_pospisilik_radim
 {
+
+    /// <summary>
+    /// Reprezentuje herní desku a stará se o generování min.
+    /// </summary>
     public class gameBoard
     {
-        
         int Width;
         int Height;
         int MineCount;
         public Cells[,] Cells;
+
+        /// <summary>
+        /// Inicializuje novou herní desku.
+        /// </summary>
+        /// <param name="width">Šířka hrací plochy</param>
+        /// <param name="height">Výška hrací plochy</param>
+        /// <param name="mineCount">Počet min</param>
 
         public gameBoard(int width, int height, int mineCount)
         {
@@ -30,12 +40,12 @@ namespace minesweeper_pospisilik_radim
                     Cells[x, y] = new Cells();
                 }
             }
-
             GenerateMines();
-
-
         }
 
+        /// <summary>
+        /// Náhodně rozmístí miny na hrací ploše.
+        /// </summary>
         private void GenerateMines()
         {
             int minesPlaced = 0;
@@ -49,16 +59,8 @@ namespace minesweeper_pospisilik_radim
                 {
                     Cells[x, y].IsMine = true;
                     minesPlaced++;
-                    
-                    
-                    
                 }
             }
         }
-
-       
-
-
-
     }
 }

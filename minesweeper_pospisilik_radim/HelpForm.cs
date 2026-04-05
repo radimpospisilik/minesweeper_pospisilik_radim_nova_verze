@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace minesweeper_pospisilik_radim
 {
+    /// <summary>
+    /// Reprezentuje form s nápovědou jak aplikaci používat a hrát, taky poskytuje informace o klávesových zkratkách.
+    /// </summary>
     public partial class HelpForm : Form
     {
         public HelpForm()
@@ -17,13 +20,16 @@ namespace minesweeper_pospisilik_radim
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Tlačítko pro přepnutí zpět do Menu.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button4_Click(object sender, EventArgs e)
         {
-            Form1 form1 = new Form1();
+            MenuForm form1 = new MenuForm();
             this.Hide();
             form1.ShowDialog();
-            this.Show();
-
         }
     }
 }

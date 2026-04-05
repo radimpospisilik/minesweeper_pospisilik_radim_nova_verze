@@ -56,9 +56,9 @@
             textBox1.BackColor = Color.Gold;
             textBox1.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             textBox1.ForeColor = Color.White;
-            textBox1.Location = new Point(353, 558);
+            textBox1.Location = new Point(377, 565);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 35);
+            textBox1.Size = new Size(76, 35);
             textBox1.TabIndex = 6;
             // 
             // textBox2
@@ -66,9 +66,9 @@
             textBox2.BackColor = Color.Gold;
             textBox2.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
             textBox2.ForeColor = Color.White;
-            textBox2.Location = new Point(115, 558);
+            textBox2.Location = new Point(134, 565);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(100, 35);
+            textBox2.Size = new Size(81, 35);
             textBox2.TabIndex = 5;
             // 
             // timer1
@@ -84,7 +84,7 @@
             comboBox1.Font = new Font("Segoe UI Black", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
             comboBox1.ForeColor = Color.White;
             comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Defaultní hra", "Vlastní hra", "Jednoduchá hra" });
+            comboBox1.Items.AddRange(new object[] { "Základní hra", "Vlastní hra", "Jednoduchá hra", "Těžká hra" });
             comboBox1.Location = new Point(12, 608);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(203, 38);
@@ -134,11 +134,11 @@
             button1.BackColor = Color.LimeGreen;
             button1.BackgroundImageLayout = ImageLayout.Stretch;
             button1.FlatAppearance.BorderSize = 0;
-            button1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            button1.Font = new Font("Segoe UI Black", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             button1.ForeColor = Color.White;
-            button1.Location = new Point(226, 605);
+            button1.Location = new Point(226, 608);
             button1.Name = "button1";
-            button1.Size = new Size(227, 41);
+            button1.Size = new Size(227, 38);
             button1.TabIndex = 10;
             button1.Text = "Potvrdit";
             button1.UseVisualStyleBackColor = false;
@@ -148,11 +148,11 @@
             // 
             label2.AutoSize = true;
             label2.BackColor = Color.Transparent;
-            label2.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Font = new Font("Segoe UI Black", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(12, 558);
+            label2.Location = new Point(12, 565);
             label2.Name = "label2";
-            label2.Size = new Size(97, 21);
+            label2.Size = new Size(116, 25);
             label2.TabIndex = 11;
             label2.Text = "Počet min: ";
             // 
@@ -160,11 +160,11 @@
             // 
             label3.AutoSize = true;
             label3.BackColor = Color.Transparent;
-            label3.Font = new Font("Segoe UI Black", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.Font = new Font("Segoe UI Black", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(226, 558);
+            label3.Location = new Point(226, 565);
             label3.Name = "label3";
-            label3.Size = new Size(121, 21);
+            label3.Size = new Size(145, 25);
             label3.TabIndex = 12;
             label3.Text = "Velikost pole: ";
             // 
@@ -183,10 +183,13 @@
             Controls.Add(textBox2);
             Controls.Add(textBox1);
             Controls.Add(progressBar1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
             KeyPreview = true;
+            MaximizeBox = false;
             Name = "GameForm";
             StartPosition = FormStartPosition.CenterScreen;
+            Text = "Hra";
             Load += GameForm_Load;
             KeyDown += GameForm_KeyDown;
             ResumeLayout(false);

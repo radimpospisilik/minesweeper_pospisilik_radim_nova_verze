@@ -11,17 +11,28 @@ using System.Windows.Forms;
 
 namespace minesweeper_pospisilik_radim
 {
+    /// <summary>
+    /// Formulář pro zobrazení skóre a výsledků jednotlivých her.
+    /// Načítá data z souboru scores.json a zobrazuje je v DataGridView.
+    /// </summary>
     public partial class ScoreForm : Form
     {
+        /// <summary>
+        /// Konstruktor ScoreForm.
+        /// Inicializuje komponenty formuláře.
+        /// </summary>
         public ScoreForm()
         {
             InitializeComponent();
         }
         private void ScoreForm_Load(object sender, EventArgs e)
         {
-            
-        }
 
+        }
+        /// <summary>
+        /// Načítá skóre ze souboru scores.json a zobrazuje je v tabulce.
+        /// Pokud soubor neexistuje nebo je prázdný, zobrazí varovnou zprávu.
+        /// </summary>
         private void LoadScores()
         {
             if (!File.Exists("scores.json"))
@@ -47,7 +58,10 @@ namespace minesweeper_pospisilik_radim
         {
 
         }
-
+        /// <summary>
+        /// Zpracovává načtení formuláře.
+        /// Při spuštění formuláře načte a zobrazí všechna skóre.
+        /// </summary>
         private void ScoreForm_Load_1(object sender, EventArgs e)
         {
             LoadScores();

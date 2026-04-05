@@ -52,9 +52,11 @@
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(475, 712);
             Controls.Add(dataGridView1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
             Name = "ScoreForm";
-            Text = "ScoreForm";
+            Text = "Skore";
             Load += ScoreForm_Load_1;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);

@@ -89,10 +89,12 @@
             Controls.Add(button4);
             Controls.Add(label6);
             Controls.Add(label1);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
             Name = "HelpForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "HelpForm";
+            Text = "Nápověda";
             ResumeLayout(false);
             PerformLayout();
         }
